@@ -1,21 +1,5 @@
 /* Page-specific styles for index.html */
 
-/* Hero gradient section */
-.hero-gradient { 
-    background: rgba(102, 126, 234, 1.0); 
-    backdrop-filter: blur(10px); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
-    border: 3px double #ff6b6b;
-}
-
-.hero-gradient h1,
-.hero-gradient h2,
-.hero-gradient h3,
-.hero-gradient p {
-    color: white;
-    text-shadow: none;
-}
-
 /* Feature highlight section */
 .feature-highlight { 
     background: rgba(255, 107, 107, 1.0); 
@@ -34,5 +18,13 @@
 .feature-highlight p {
     color: white;
     text-shadow: none;
+}
+
+/* Center-aligned lists with left-aligned bullets */
+.hero ul {
+    display: inline-block;
+    text-align: left;
+    margin-left: 0;
+    max-width: calc(50% + 95px);
 }
 

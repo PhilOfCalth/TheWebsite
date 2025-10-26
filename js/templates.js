@@ -20,21 +20,12 @@ async function loadTemplate(templateName, templatePath) {
             // Check if this is a layout template
             if (templateName === 'layout') {
                 renderLayoutTemplate(element, templateContent);
+            } else if (templateName === 'head') {
+                // Special handling for head template - insert into actual <head> element
+                insertHeadContent(templateContent);
             } else {
-                // Adjust image paths based on current location
-                let adjustedContent = templateContent;
-                const currentPath = window.location.pathname;
-                const isInSubdirectory = currentPath.split('/').length > 2;
-                
-                if (isInSubdirectory) {
-                    // If in subdirectory, keep ../images/ paths as they are
-                    // (they're already correct for subdirectories)
-                } else {
-                    // If in root directory, change ../images/ to images/
-                    adjustedContent = adjustedContent.replace(/\.\.\/images\//g, 'images/');
-                }
-                
-                element.innerHTML = adjustedContent;
+                // No path adjustment needed since we're using absolute paths
+                element.innerHTML = templateContent;
             }
         });
         
@@ -76,6 +67,23 @@ function renderLayoutTemplate(element, templateContent) {
     }, 50);
 }
 
+// Function to insert head content into the actual <head> element
+function insertHeadContent(templateContent) {
+    const head = document.head;
+    
+    // No path adjustment needed since we're using absolute paths
+    const adjustedContent = templateContent;
+    
+    // Create a temporary div to parse the HTML content
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = adjustedContent;
+    
+    // Move all child elements to the head
+    while (tempDiv.firstChild) {
+        head.appendChild(tempDiv.firstChild);
+    }
+}
+
 // Function to scan for t_ tags and load corresponding templates
 async function loadAllTemplates() {
     console.log('Starting template loading...');
@@ -106,8 +114,8 @@ async function loadAllTemplates() {
         }
     });
     
-    // Also check for custom t_ elements (like <t_header>, <t_footer>, <t_nav>, <t_sidebar>, <t_layout>)
-    const customElements = document.querySelectorAll('t_header, t_footer, t_nav, t_sidebar, t_layout');
+    // Also check for custom t_ elements (like <t_header>, <t_footer>, <t_nav>, <t_sidebar>, <t_layout>, <t_head>)
+    const customElements = document.querySelectorAll('t_header, t_footer, t_nav, t_sidebar, t_layout, t_head');
     console.log('Found custom elements:', customElements.length);
     customElements.forEach(element => {
         const tagName = element.tagName.toLowerCase();
@@ -121,10 +129,8 @@ async function loadAllTemplates() {
     
     // Load each template
     const loadPromises = Array.from(templateNames).map(templateName => {
-        // Determine the correct path based on current location
-        const currentPath = window.location.pathname;
-        const isInSubdirectory = currentPath.split('/').length > 2;
-        const templatePath = isInSubdirectory ? `../templates/${templateName}.html` : `templates/${templateName}.html`;
+        // Use absolute path for templates
+        const templatePath = `/templates/${templateName}.html`;
         console.log(`Loading template: ${templateName} from ${templatePath}`);
         return loadTemplate(templateName, templatePath);
     });
