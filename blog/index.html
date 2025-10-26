@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <title>My Website - Blog</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/pages/blog.css">
+    <!-- Marked.js library for markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+</head>
+<body>
+    <!-- Header will be loaded here by JavaScript -->
+    <t_header></t_header>
+
+    <!-- Main content area -->
+    <main>
+        <div class="container">
+            <h1>Blog</h1>
+            <p>Welcome to our blog where we share insights, tutorials, and updates.</p>
+            
+            <div class="hero">
+                <h2>Latest Posts</h2>
+                <p>Discover our latest articles and insights on web development, technology, and more.</p>
+            </div>
+
+            <section class="features">
+                <h2>Recent Articles</h2>
+                <div class="feature-grid">
+                    <!-- Articles will be dynamically loaded here -->
+                </div>
+            </section>
+
+            <!-- Breadcrumb navigation -->
+            <t_nav></t_nav>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded here by JavaScript -->
+    <t_footer></t_footer>
+
+    <!-- Load the templating system -->
+    <script src="../js/templates.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+/* Blog-specific styles */
+
+/* Blog post navigation */
+.blog-navigation {
+    margin-bottom: 2rem;
+}
+
+/* Article header with datetime */
+.article-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #ff6b6b;
+}
+
+.article-datetime {
+    color: #e74c3c;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+}
+
+.back-to-blog {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.back-to-blog:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Markdown content styling */
+.markdown-content {
+    background: white;
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    line-height: 1.6;
+    position: relative;
+    overflow: visible;
+    margin: 20px;
+    border: 3px double #ff6b6b;
+}
+
+/* Blurred margin effect */
+.markdown-content::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0.4), rgba(255,255,255,0.2));
+    border-radius: 20px;
+    z-index: -1;
+    filter: blur(15px);
+}
+
+.markdown-content h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.markdown-content h2 {
+    color: #34495e;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.markdown-content h3 {
+    color: #2c3e50;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.markdown-content p {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.markdown-content code {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.markdown-content pre {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.markdown-content pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+.markdown-content blockquote {
+    border-left: 4px solid #3498db;
+    margin: 1rem 0;
+    padding-left: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.markdown-content ul, .markdown-content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.markdown-content li {
+    margin-bottom: 0.5rem;
+}
+
+.markdown-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.markdown-content th, .markdown-content td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.markdown-content th {
+    background-color: rgba(52, 73, 94, 0.1);
+    font-weight: bold;
+}
+
+.markdown-content hr {
+    border: none;
+    border-top: 2px solid #ddd;
+    margin: 2rem 0;
+}
+
+.markdown-content a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.markdown-content a:hover {
+    text-decoration: underline;
+}
+
+/* Blog post links in main blog page */
+.feature-card h3 a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.feature-card h3 a:hover {
+    color: #3498db;
+}
+
+/* Error message styling */
+.error-message {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 1.0);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.error-message h1,
+.error-message h2,
+.error-message h3,
+.error-message p {
+    color: #333;
+    text-shadow: none;
+}
+
+.error-message h1 {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.error-message p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.error-message a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.error-message a:hover {
+    text-decoration: underline;
+}
